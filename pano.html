@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>房子内部全景图展示</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi,width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            background-color: #000000;
+            margin: 0px;
+            overflow: hidden;
+        }
+        @-ms-viewport { width: device-width; }
+
+        /*//媒体查询*/
+        /*//min-device-width: 800px  当你的设备宽度小于800时你的html 超出隐藏；*/
+        @media only screen and (min-device-width: 800px) { html { overflow:hidden; } }
+
+        #info {
+            position: absolute;
+            top: 0px; width: 100%;
+            color: #ffffff;
+            padding: 5px;
+            font-family:Monospace;
+            font-size:13px;
+            font-weight: bold;
+            text-align:center;
+        }
+        a {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script src="js/three/three.js"></script>
+<script>
+    var camera, scene, renderer;
+    var fov = 70,
+        texture_placeholder,
+        isUserInteracting = false,
+        onMouseDownMouseX = 0, onMouseDownMouseY = 0,
+        lon = 0, onMouseDownLon = 0,
+        lat = 0, onMouseDownLat = 0,
+        phi = 0, theta = 0;
+    init();
+    animate();
+    function init() {
+        //定义容器与网格
+        var container, mesh;
+        container = document.getElementById( 'container' );
+        //定义相机
+        /*
+            Vector3对象的构造函数.用来创建一个三维向量的对象.Vector3对象的功能函数采用
+            定义构造的函数原型对象来实现.
+
+            用法: var p2d = new Vector3(5,3,2)
+            创建一个x坐标为5,y坐标为3的向量,z坐标为2的向量.
+            NOTE: 参数(x,y,z)坐标为可选参数,如果不指定参数(x,y,z),将创建一个坐标为(0,0,0)的向量.
+        */
+        camera = new THREE.PerspectiveCamera( fov, window.innerWidth / window.innerHeight, 1, 1100 );
+        camera.target = new THREE.Vector3( 0, 0, 0 );	//设置相机目标点
+        scene = new THREE.Scene();  //定义场景
+        /*
+        一般投影方式有两种 ，立方体投影和球形投影 。
+        SphereGeometry用来在三维空间内创建一个球体对象.
+        TetrahedronGeometry用来在三维空间内创建一个四面体对象.
+        看给的图片属于那种类型
+        Mesh（图元装配函数）
+        SphereGeometry用法:
+                var geometry = new THREE.SphereGeometry(500, 60, 40 );
+                var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+                var mesh = new THREE.Mesh(geometry,material);
+                scene.add(sphere);
+         TetrahedronGeometry用法:
+                 var geometry = new THREE.TetrahedronGeometry(70);
+                 var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+                 var icos = new THREE.Mesh(geometry,material);
+                 scene.add(icos);
+        */
+        var geometry = new THREE.SphereGeometry( 500, 60, 40 );
+        geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
+        var material = new THREE.MeshBasicMaterial( {
+            map: THREE.ImageUtils.loadTexture( 'images/we.jpg' )
+        } );
+        mesh = new THREE.Mesh( geometry, material );
+        scene.add( mesh );  //加入到场景里面去；
+        renderer = new THREE.WebGLRenderer();//生成渲染器对象，属性：锯齿效果设为true new THREE.WebGLRenderer({antialias:true});
+        renderer.setSize( window.innerWidth, window.innerHeight );//设置渲染器的宽和高，和画布大小一致
+        container.appendChild( renderer.domElement );//追加渲染器到容器里面去
+        //dom元素增加鼠标事件；addEventListener 指定元素添加句柄 element.addEventListener(event, function, useCapture)
+        //useCapture 布尔值，指定事件是否在捕获或冒泡阶段执行。
+        document.addEventListener( 'mousedown', onDocumentMouseDown, false ); // 鼠标按下事件
+        document.addEventListener( 'mousemove', onDocumentMouseMove, false ); //鼠标移动事件
+        document.addEventListener( 'mouseup', onDocumentMouseUp, false ); //鼠标抬起事件
+        document.addEventListener( 'mousewheel', onDocumentMouseWheel, false ); //鼠标滚动事件  其他浏览器都是用mousewheel
+        document.addEventListener( 'DOMMouseScroll', onDocumentMouseWheel, false); //鼠标滚动事件针对火狐使用DOMMouseScroll
+        window.addEventListener( 'resize', onWindowResize, false );
+    }
+    //浏览器窗口事件
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();  //投影矩阵
+        renderer.setSize( window.innerWidth, window.innerHeight );//渲染的宽度高度不包括菜单栏、工具栏以及滚动条等的高度。
+    }
+    //鼠标按下事件
+    function onDocumentMouseDown( event ) {
+        event.preventDefault();//取消浏览器的默认行为
+        isUserInteracting = true;  //互动
+        onPointerDownPointerX = event.clientX;
+        onPointerDownPointerY = event.clientY;
+        onPointerDownLon = lon;
+        onPointerDownLat = lat;
+    }
+    function onDocumentMouseMove( event ) {
+        if ( isUserInteracting ) {
+            lon = ( onPointerDownPointerX - event.clientX ) * 0.1 + onPointerDownLon;
+            lat = ( event.clientY - onPointerDownPointerY ) * 0.1 + onPointerDownLat;
+        }
+    }
+    function onDocumentMouseUp( event ) {
+        isUserInteracting = false;
+    }
+    function onDocumentMouseWheel( event ) {
+        // WebKit
+        if ( event.wheelDeltaY ) {
+            fov -= event.wheelDeltaY * 0.05;
+            // Opera / Explorer 9
+        } else if ( event.wheelDelta ) {
+            fov -= event.wheelDelta * 0.05;
+            // Firefox
+        } else if ( event.detail ) {
+            fov += event.detail * 1.0;
+        }
+        camera.projectionMatrix.makePerspective( fov, window.innerWidth / window.innerHeight, 1, 1100 );
+        render();
+    }
+    //循环相互调用
+    function animate() {
+        requestAnimationFrame( animate );
+        render();
+    }
+    //渲染
+    function render() {
+        lat = Math.max( - 85, Math.min( 85, lat ) );
+        phi = THREE.Math.degToRad( 90 - lat );
+        theta = THREE.Math.degToRad( lon );
+        camera.target.x = 500 * Math.sin( phi ) * Math.cos( theta );
+        camera.target.y = 500 * Math.cos( phi );
+        camera.target.z = 500 * Math.sin( phi ) * Math.sin( theta );
+        camera.lookAt( camera.target );
+        renderer.render( scene, camera );
+    }
+</script>
+</body>
+</html>
