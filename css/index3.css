@@ -98,7 +98,7 @@
     margin: 2px 10px 0 0;
 }
 .mb-inav-about li div.cur {
-    background-image: url("../img/switch.svg");
+    /*background-image: url("../img/switch.svg");*/
     background-repeat: no-repeat;
     width: 40px;
     height: 8px;
@@ -140,7 +140,7 @@
 }
 .jiankangguwen-ico {
     background-repeat: no-repeat;
-    background-image: url("../img/jiankangguwen-ico.png");
+    /*background-image: url("../img/jiankangguwen-ico.png");*/
     background-size: 64px 64px;
     height: 64px;
     width: 64px;
@@ -148,7 +148,7 @@
 }
 .xietiaozhuanyuan-ico {
     background-repeat: no-repeat;
-    background-image: url("../img/xietiaozhuanyuan-ico.png");
+    /*background-image: url("../img/xietiaozhuanyuan-ico.png");*/
     background-size: 64px 64px;
     height: 64px;
     width: 64px;
@@ -156,7 +156,7 @@
 }
 .jiatingyisheng-ico {
     background-repeat: no-repeat;
-    background-image: url("../img/jiatingyisheng-ico.png");
+    /*background-image: url("../img/jiatingyisheng-ico.png");*/
     background-size: 64px 64px;
     height: 64px;
     width: 64px;
@@ -164,7 +164,7 @@
 }
 .tuhuandaifu-ico {
     background-repeat: no-repeat;
-    background-image: url("../img/tuhuandaifu-ico.png");
+    /*background-image: url("../img/tuhuandaifu-ico.png");*/
     background-size: 64px 64px;
     height: 64px;
     width: 64px;
@@ -598,6 +598,30 @@ div.flicking_con .item-text h4 {
     .btn-more{
         visibility:hidden;
     }
+
+}
+.gotop{
+    z-index: 10;
+    position:fixed;
+    display:none;
+    bottom:30%;
+    right:0px;
+    height:80px;
+    width: 60px;
+    background: url( ../images/top.jpg )  center center no-repeat;
+    background-size: cover;
+    opacity: 0.5;
+}
+@media screen and (max-width:500px){
+    .gotop{
+        display:none;
+        height:25px;
+        width: 25px;
+        position: fixed;
+        bottom: 10%;
+        background: url( ../images/rightSider_04.png ) center center no-repeat;
+        opacity: 0.5;
+    }
 }
 .banner .banner-item .banner-text > div {
     margin-top: 18%\9; /*兼容IE6 IE7 IE8*/
@@ -605,9 +629,11 @@ div.flicking_con .item-text h4 {
 .slideup_info_bg > div {
     margin-top: 32%\9; /*兼容IE6 IE7 IE8*/
 }
-.
 
-/*导航条*/
+
+
+
+
 
 
 

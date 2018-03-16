@@ -149,10 +149,11 @@ var PhotoSphereViewer = function(args) {
 	 * Starts to load the panorama.
 	 * @public
 	 * @return {void}
+	 *
 	 **/
 
 	this.load = function() {
-		// Loading indicator (text or image if given)
+		// Loading indicator (text or image if given) 加载指标
 		if (!!loading_img) {
 			var loading = document.createElement('img');
 			loading.setAttribute('src', loading_img);
@@ -1142,7 +1143,7 @@ var PhotoSphereViewer = function(args) {
 	 **/
 
 	var setNewViewerSize = function(size) {
-		// Checks all the values
+		// Checks all the values  检查所有的值
 		for (dim in size) {
 			// Only width and height matter
 			if (dim == 'width' || dim == 'height') {
@@ -1341,12 +1342,14 @@ var PSVNavBar = function(psv) {
 	};
 
 	/**
+	 *
 	 * Checks if a property is valid.
 	 * @private
 	 * @param {string} property - The property
 	 * @param {*} value - The value to check
 	 * @return {boolean} `true` if the value is valid, `false` otherwise
-	 **/
+	 *
+	 * */
 
 	var checkValue = function(property, value) {
 		return (

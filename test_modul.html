@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模型展示</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/three/three.js"></script>
+    <script src="js/three/orbitControls.js"></script>
+    <script src="js/three/stats.min.js"></script>
+    <script type="text/javascript" src="js/three/OrbitControls.js" ></script>
+    <script type="text/javascript" src="js/three/OBJLoader0k.js" ></script>
+    <script type="text/javascript" src="js/three/MTLLoader.js" ></script>
+    <script type="text/javascript" src="js/three/OBJMTLLoader.js" ></script>
+    <script>
+
+        var scene , camera ,renderer;
+        var height , width ;
+
+        width = window.innerWidth;
+        height = window.innerHeight;
+
+        scene = new THREE.Scene;
+        camera = new THREE.PerspectiveCamera( 45 , width/height , 1 , 5000 );
+        camera.position.set( 300 , 300 , 300 );
+        camera.lookAt( scene.position );
+        scene.add( camera );
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize( width , height );
+        // renderer.clearColor( 0xcccccc );
+        renderer.setClearColor(new THREE.Color(0xcccccc));
+        document.body.appendChild( renderer.domElement );
+
+        // 光源
+        var light=new THREE.PointLight(0xCCCCCC);
+        light.position.set(3000,4000,2000);
+        scene.add(light);
+
+        // 环境光
+        var ambientLight = new THREE.AmbientLight(0xCCCCCC);
+        scene.add(ambientLight);
+
+
+        // 加模型
+        var loader1=new THREE.OBJLoader();
+        loader1.load("obj/building 11.obj",function(ssobject){
+            ssobject.scale.set(3 , 3 , 3);
+            ssobject.rotation.x=Math.PI;
+            ssobject.rotation.z=Math.PI;
+            ssobject.rotation.y=Math.PI;
+
+            ssobject.position.z=Math.PI;
+            ssobject.position.x=0;
+            ssobject.position.y=-0;
+            scene.add( ssobject );
+        })
+
+
+        var mtlLoader = new THREE.MTLLoader();
+        mtlLoader.load( 'obj/building 11.mtl', mtl);
+
+
+        function mtl( material ) {
+            var objLoader = new THREE.OBJLoader() ;
+            var objLoader = new THREE.OBJLoader() ;
+
+            objLoader.setMaterials( material );
+            objLoader.load( 'obj/building 11.obj',obj );
+        }
+
+        function obj( object3D ) {
+            object3D.scale.set( 3 , 3 , 3 );
+            object3D.rotation.x=Math.PI;
+            object3D.rotation.z=Math.PI;
+            object3D.rotation.y=Math.PI;
+
+            object3D.position.z=Math.PI;
+            object3D.position.x=0;
+            object3D.position.y=-0;
+
+            scene.add( object3D );
+
+        }
+        // 创建辅助系统
+        function createAuxSystem(){
+
+            // 状态
+            var stats = new Stats();
+            stats.setMode(0) ;
+            stats.domElement.style.position = 'absolute' ;
+            stats.domElement.style.left = '5px' ;
+            stats.domElement.style.top = '5px' ;
+            // document.body.appendChild(stats.domElement);
+
+
+            // 网格助手
+            // var gridHelper = new THREE.GridHelper(300, 30);
+            // scene.add( gridHelper ) ;
+
+            // 控制器
+            var controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.25;
+            controls.rotateSpeed = 0.35;
+        }
+
+        function GameLoop () {
+            renderer.render(scene, camera);
+            requestAnimationFrame( GameLoop );
+        }
+        function onWindowResize () {
+            window.addEventListener('resize', function () {
+                width = window.innerWidth
+                height = window.innerHeight
+
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix()
+
+                renderer.setSize(width, height)
+            })
+        }
+
+        createAuxSystem();
+
+        GameLoop () ;
+
+        onWindowResize ();
+
+    </script>
+
+</body>
+</html>

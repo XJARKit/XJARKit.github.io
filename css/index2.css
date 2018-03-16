@@ -71,12 +71,12 @@
 
 .banner-wrapper{
     width: 100%;
-    height:522px;
-    background: url("../images/banner.jpg") no-repeat;
+    height:422px;
+    overflow: hidden;
 }
 .banner-wrapper img{
     width:100%;
-    height: 522px;
+    height: 422px;
     overflow: hidden;
 }
 
@@ -181,7 +181,7 @@
 }
 .about-headings{
     position:absolute;
-    top:40%;
+    top:24%;
     left:5px;
     z-index: 2;
     font-size: 18px;
@@ -209,7 +209,7 @@
     color:#fff;
     margin-top:10%;
     text-align: center;
-    display: none;
+    /*display: none;*/
 }
 .about-info p{
     line-height: 20px;
@@ -254,7 +254,6 @@
     box-shadow: 4px 4px 4px 4px #888888;
     transform: translate3d(-3px, -3px, 3px);
 }
-
 .news-img{
     width: 100%;
     overflow: hidden;
@@ -275,7 +274,7 @@
     font-size: 12px;
     line-height: 20px;
     overflow: hidden;
-    height: 56px;
+    /*height: 56px;*/
     margin: 10px ;
     text-align: justify;
     color: #959da6;
@@ -455,7 +454,9 @@ h5 {
 }
 
 /*iconfont*/
-。news-title
+.news-title{
+    color: #ccc;
+}
 
 .new-center-top{
     text-align: center;
@@ -475,3 +476,74 @@ h5 {
 .icon_box i{
     font-size: 50px;
 }
+
+/*拍照技巧*/
+
+.three{
+    height:300px;
+    width:540px;
+}
+.tips li{
+    /*line-height: 18px;*/
+    padding:5px 5px;
+    color: #666666;
+}
+.tips li:hover{
+    color: #666666;
+}
+.bgb{
+    background: #000;
+}
+
+.mb10{
+   margin-bottom: 10px;
+}
+.tips_box{
+    box-sizing: border-box;
+    border: 4px solid rgba(59, 190, 122,.7);
+}
+/*.shooting-container{*/
+    /*width:100%;*/
+/*}*/
+
+/*.shoot_box{*/
+    /*width: 100%;*/
+    /*box-sizing: border-box;*/
+    /*height: 300px;*/
+    /*margin-bottom: 10px;*/
+    /*background: #000000;*/
+/*}*/
+
+/*.three_img{*/
+    /*height: 100%;*/
+    /*!*width:32%;*!*/
+    /*float: left;*/
+/*}*/
+/*.three_tip img{*/
+    /*height: 100%;*/
+    /*width:100%;*/
+    /*display: inline;*/
+    /*overflow: hidden;*/
+  /*}*/
+/*.three_center{*/
+    /*!*width:32%;*!*/
+    /*height:100%;*/
+    /*float: left;*/
+/*}*/
+/*.three_right{*/
+    /*!*width:32%;*!*/
+    /*height:100%;*/
+    /*float: left;*/
+/*}*/
+/*.three_title{*/
+    /*text-align: center;*/
+    /*font-size: 24px;*/
+    /*line-height: 40px;*/
+
+/*}*/
+/*.three_center p{*/
+    /*padding:0 10px 5px;*/
+/*}*/
+/*.three_right p{*/
+    /*padding:0 10px 5px;*/
+/*}*/

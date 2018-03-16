@@ -9,9 +9,9 @@
 // This set of controls performs orbiting, dollying (zooming), and panning.
 // Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
 //
-//    Orbit - left mouse / touch: one finger move
-//    Zoom - middle mouse, or mousewheel / touch: two finger spread or squish
-//    Pan - right mouse, or arrow keys / touch: three finger swipe
+//    Orbit - left mouse / touch: one finger move  一个手指移动
+//    Zoom - middle mouse, or mousewheel / touch: two finger spread or squish 两个手指压缩放大
+//    Pan - right mouse, or arrow keys / touch: three finger swipe 鼠标右键，或箭头键/触摸:三指滑动。
 
 THREE.OrbitControls = function ( object, domElement ) {
 
@@ -193,8 +193,8 @@ THREE.OrbitControls = function ( object, domElement ) {
 			panOffset.set( 0, 0, 0 );
 
 			// update condition is:
-			// min(camera displacement, camera rotation in radians)^2 > EPS
-			// using small-angle approximation cos(x/2) = 1 - x^2 / 8
+			// min(camera displacement, camera rotation in radians)^2 > EPS 相机位移，相机在弧度内旋转。
+			// using small-angle approximation cos(x/2) = 1 - x^2 / 8 利用小角近似值cos(x / 2)= 1 - x ^ 2/8
 
 			if ( zoomChanged ||
 				lastPosition.distanceToSquared( scope.object.position ) > EPS ||

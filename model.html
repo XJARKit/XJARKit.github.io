@@ -2,52 +2,67 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>人物展示</title>
+    <title>模型展示</title>
     <script type="text/javascript" src="js/three/three.js" ></script>
     <script type="text/javascript" src="js/three/OrbitControls.js" ></script>
     <script type="text/javascript" src="js/three/OBJLoader0k.js" ></script>
     <script type="text/javascript" src="js/three/MTLLoader.js" ></script>
     <script type="text/javascript" src="js/three/OBJMTLLoader.js" ></script>
-
+    <style>
+        body{
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas{
+            width:100%;
+            height:100%;
+        }
+    </style>
 </head>
 <body>
 <script>
     var scene=new THREE.Scene();
     //正方体添加在场景中
     var material=new THREE.MeshLambertMaterial({color:0xe0e0e0,opacity:0.1});
-    var geometry=new THREE.BoxGeometry(300,0,300);
+    var geometry=new THREE.BoxGeometry(0,0,0);
     var mesh=new THREE.Mesh(geometry,material);
     scene.add(mesh);
     //加模型
     var loader1=new THREE.OBJLoader();
-    loader1.load("obj/female02.obj",function(ssobject){
-        ssobject.scale.set(0.6,0.6,0.6);
+    loader1.load("obj/building 11.obj",function(ssobject){
+        ssobject.scale.set(4.8,4.8,4.8);
         ssobject.rotation.x=Math.PI;
         ssobject.rotation.z=Math.PI;
-        ssobject.position.z=0;
+        ssobject.rotation.y=Math.PI;
+
+        ssobject.position.z=Math.PI;
         ssobject.position.x=0;
-        ssobject.position.y=0;
-        scene.add(ssobject);
+        ssobject.position.y=-0;
+        scene.add( ssobject );
     })
     //	加图片纹理和模型
     var mtlLoader = new THREE.MTLLoader();//mtl材质加载器
-    mtlLoader.load( 'obj/female02.mtl', mtl);//加载.mtl文件，执行mtl函数
+    mtlLoader.load( 'obj/building 11.mtl', mtl);//加载.mtl文件，执行mtl函数
     /**声明函数mtl*/
     function mtl( material ) {
         var objLoader = new THREE.OBJLoader();//obj模型加载器
+        var objLoader = new THREE.OBJLoader();
+
         objLoader.setMaterials( material );//mtl材质赋值给obj模型
-        objLoader.load( 'obj/female02.obj',obj );//加载.obj文件，执行obj函数
+        objLoader.load( 'obj/building 11.obj',obj );//加载.obj文件，执行obj函数
     }
     /**声明函数obj*/
     function obj( object3D ) {
-        object3D.scale.set(0.6,0.6,0.6);
+        object3D.scale.set(4.8,4.8,4.8);
         object3D.rotation.x=Math.PI;
         object3D.rotation.z=Math.PI;
-        object3D.position.z=0;
+        object3D.rotation.y=Math.PI;
+
+        object3D.position.z=Math.PI;
         object3D.position.x=0;
-        object3D.position.y=0;
-        //旋转
-        scene.add( object3D );//object3D对象插入场景对象
+        object3D.position.y=-0;
+
+        scene.add( object3D );
     }
     //光源
     var light=new THREE.PointLight(0xCCCCCC);
@@ -59,14 +74,14 @@
     scene.add(ambientLight);
 
     //相机
-    var camera=new THREE.PerspectiveCamera(40,window.innerWidth/innerHeight,1,1000);
-    camera.position.set(200,200,200);
+    var camera=new THREE.PerspectiveCamera(45,window.innerWidth/innerHeight,1,1000);
+    camera.position.set(500,500,500);
     camera.lookAt(scene.position);
 
     //渲染器
     var  renderer=new THREE.WebGLRenderer({antialias:true});//模型放大后会出现狙刺；antialias:true是抗锯齿
     renderer.setClearColor(new THREE.Color(0xcccccc));//渲染屏幕颜色
-    renderer.setSize(window.innerWidth,window.innerHeight);//自适应屏幕大小
+    renderer.setSize( window.innerWidth,window.innerHeight );//自适应屏幕大小
     renderer.shadowMapEnabled=true;
     document.body.appendChild(renderer.domElement);
     function render(){
@@ -86,6 +101,7 @@
         // scene.rotation.y += 0.01;
     }
     animate();
+
 </script>
 </body>
 </html>
