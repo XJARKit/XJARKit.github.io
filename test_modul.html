@@ -13,14 +13,12 @@
 </head>
 <body>
     <script src="js/three/three.js"></script>
-    <script src="js/three/orbitControls.js"></script>
     <script src="js/three/stats.min.js"></script>
-    <script type="text/javascript" src="js/three/OrbitControls.js" ></script>
-    <script type="text/javascript" src="js/three/OBJLoader0k.js" ></script>
-    <script type="text/javascript" src="js/three/MTLLoader.js" ></script>
-    <script type="text/javascript" src="js/three/OBJMTLLoader.js" ></script>
+    <script type="text/javascript" src="js/three/OrbitControls.min.js" ></script>
+    <script type="text/javascript" src="js/three/OBJLoader0k.min.js" ></script>
+    <script type="text/javascript" src="js/three/MTLLoader.min.js" ></script>
+    <script type="text/javascript" src="js/three/OBJMTLLoader.min.js" ></script>
     <script>
-
         var scene , camera ,renderer;
         var height , width ;
 
@@ -35,8 +33,8 @@
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( width , height );
-        // renderer.clearColor( 0xcccccc );
-        renderer.setClearColor(new THREE.Color(0xcccccc));
+
+		renderer.setClearColor(new THREE.Color(0xcccccc));
         document.body.appendChild( renderer.domElement );
 
         // 光源
@@ -49,35 +47,44 @@
         scene.add(ambientLight);
 
 
-        // 加模型
-        var loader1=new THREE.OBJLoader();
-        loader1.load("obj/building 11.obj",function(ssobject){
-            ssobject.scale.set(3 , 3 , 3);
-            ssobject.rotation.x=Math.PI;
-            ssobject.rotation.z=Math.PI;
-            ssobject.rotation.y=Math.PI;
-
-            ssobject.position.z=Math.PI;
-            ssobject.position.x=0;
-            ssobject.position.y=-0;
-            scene.add( ssobject );
-        })
-
-
         var mtlLoader = new THREE.MTLLoader();
-        mtlLoader.load( 'obj/building 11.mtl', mtl);
+        mtlLoader.setPath('obj/bridge/');
+        
+        mtlLoader.load( 'bird.mtl', function(material){
+        	var objLoader = new THREE.OBJLoader() ;
+        	
+        	objLoader.setMaterials(material);
+        	
+        	objLoader.setPath('obj/bridge/');
+        	objLoader.load( 'bird.obj',function(){
+        		objLoader.load( 'bird.obj',function(object){
+        			object.scale.set( 2.5, 2.5 , 2.5 );
+		            object.rotation.x=Math.PI;
+		            object.rotation.z=Math.PI;
+		            object.rotation.y=Math.PI;
+		
+		            object.position.z=Math.PI;
+		            object.position.x=0;
+		            object.position.y=-0;
+		
+		            scene.add( object );
+        		});
+        	});
+        	
+        	
+        });
 
 
         function mtl( material ) {
             var objLoader = new THREE.OBJLoader() ;
             var objLoader = new THREE.OBJLoader() ;
-
+			mtlLoader.setPath('/obj/bridge/');
             objLoader.setMaterials( material );
-            objLoader.load( 'obj/building 11.obj',obj );
+            objLoader.load( 'bird.obj',obj );
         }
 
         function obj( object3D ) {
-            object3D.scale.set( 3 , 3 , 3 );
+            object3D.scale.set( 2.5, 2.5 , 2.5 );
             object3D.rotation.x=Math.PI;
             object3D.rotation.z=Math.PI;
             object3D.rotation.y=Math.PI;

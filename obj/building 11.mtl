@@ -11,6 +11,6 @@ Ks 0.992157 0.992157 0.992157
 d 1.000000
 illum 2
 Ns 1.000000
-map_Kd obj/roman_building_9.jpg
+map_Kd roman_building_9.jpg
 
 # num_materials: 1
