@@ -42,22 +42,18 @@
         light.position.set(3000,4000,2000);
         scene.add(light);
 
-        // 环境光
+        // 环境光 
         var ambientLight = new THREE.AmbientLight(0xCCCCCC);
         scene.add(ambientLight);
 
-
         var mtlLoader = new THREE.MTLLoader();
-        mtlLoader.setPath('obj/bridge/');
+        mtlLoader.setPath('obj/');
         
-        mtlLoader.load( 'bird.mtl', function(material){
+        mtlLoader.load( 'building 11.mtl', function(material){
         	var objLoader = new THREE.OBJLoader() ;
-        	
         	objLoader.setMaterials(material);
-        	
-        	objLoader.setPath('obj/bridge/');
-        	objLoader.load( 'bird.obj',function(){
-        		objLoader.load( 'bird.obj',function(object){
+        	objLoader.setPath('obj/');
+        		objLoader.load( 'building 11.obj',function(object){
         			object.scale.set( 2.5, 2.5 , 2.5 );
 		            object.rotation.x=Math.PI;
 		            object.rotation.z=Math.PI;
@@ -69,33 +65,7 @@
 		
 		            scene.add( object );
         		});
-        	});
-        	
-        	
         });
-
-
-        function mtl( material ) {
-            var objLoader = new THREE.OBJLoader() ;
-            var objLoader = new THREE.OBJLoader() ;
-			mtlLoader.setPath('/obj/bridge/');
-            objLoader.setMaterials( material );
-            objLoader.load( 'bird.obj',obj );
-        }
-
-        function obj( object3D ) {
-            object3D.scale.set( 2.5, 2.5 , 2.5 );
-            object3D.rotation.x=Math.PI;
-            object3D.rotation.z=Math.PI;
-            object3D.rotation.y=Math.PI;
-
-            object3D.position.z=Math.PI;
-            object3D.position.x=0;
-            object3D.position.y=-0;
-
-            scene.add( object3D );
-
-        }
         // 创建辅助系统
         function createAuxSystem(){
 
@@ -142,6 +112,5 @@
         onWindowResize ();
 
     </script>
-
 </body>
 </html>

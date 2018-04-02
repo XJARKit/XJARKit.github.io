@@ -685,7 +685,7 @@ section {
 	background:url(../images/icons.png) no-repeat 0px -112px;
 }
 section.business {
-	background:url(../images/wp2.jpg) 50% bottom;
+	background:url(../images/wp15.jpg) 50% bottom;
 }
 .business .box {
 	position:relative;
@@ -722,6 +722,7 @@ section.business {
 .business .box .caption span {
 	font-size:24px;
 	letter-spacing:3px;
+	color: #ccc;
 }
 .business .box ul.items {
 	margin:0 auto;
@@ -792,6 +793,7 @@ section.business {
 	font-size:16px;
 	font-weight:normal;
 	text-align:center;
+	color: #00dfb9;
 }
 .business .box ul.items li p {
 	position:relative;
@@ -1385,7 +1387,7 @@ section.clients {
 	display:none;
 }
 section.quality {
-	background:url(../images/wp5.jpg) 50% 10%;
+	background:url(../images/wp14.jpg) 50% 10%;
 }
 .quality .box {
 	position:relative;
@@ -1642,18 +1644,25 @@ section.marketing {
 	width:68px;
 	background:url(../images/words.png) no-repeat -288px -630px;
 }
-.marketing .box ul.items li.sms i {
-	width:61px;
-	background:url(../images/words.png) no-repeat -366px -628px;
+
+.marketing .box ul.items li.qjzs i {
+	width:66px;
+	background:url(../images/icon_02.png) no-repeat -15px 8px;
 }
-.marketing .box ul.items li.pay i {
-	width:56px;
-	background:url(../images/words.png) no-repeat -438px -639px;
+.marketing .box ul.items li.qjmx i {
+	width:68px;
+	background:url(../images/icon_02.png) no-repeat -15px -62px;
 }
-.marketing .box ul.items li.bbs i {
-	width:51px;
-	background:url(../images/words.png) no-repeat -144px -705px;
+.marketing .box ul.items li.tdmx i {
+	width:68px;
+	background:url(../images/icon_02.png) no-repeat -13px -137px;
 }
+.marketing .box ul.items li.tdzs i {
+	width:68px;
+	background:url(../images/icon_02.png) no-repeat -9px -216px;
+}
+
+
 .marketing .box ul.items li u {
 	display:block;
 	position:absolute;
@@ -1708,7 +1717,7 @@ section.marketing {
 }
 section.aboutus {
 	position:relative;
-	background:url(../images/wp7.jpg) 50% 60%;
+	background:url(../images/wp12_1.jpg) 50% 60%;
 	-moz-background-size:cover;
 	background-size:cover;
 }
@@ -2200,6 +2209,10 @@ header .logo img.ori {
 }
 header .logo img.mini {
 	display:inline-block;
+    padding-top: 15px;
+    height: 39px;
+    width: 55px;
+   
 }
 }@media (max-width:1080px) {
 	header .hotline {
@@ -2300,7 +2313,7 @@ header.fixed {
 	height:60px;
 }
 header .logo,header.fixed .logo {
-	width:80px;
+	width:103px;
 }
 header .menu-icon,header.fixed .menu-icon {
 	top:13px;
@@ -2309,7 +2322,7 @@ header .menu-icon span.glyphicon-earphone {
 	display:inline;
 }
 header nav.menu,header.fixed nav.menu {
-	top:17px;
+	top:41px;
 }
 header .hotline,header.fixed .hotline {
 	display:none;
@@ -3300,11 +3313,11 @@ div.welcome p u {
 }
 }@media (max-width:1280px) and (max-height:800px) {
 	section.quality {
-	background:url(../images/wp5_h800.jpg) 50% 10%;
+	background:url(../images/wp14_h800.jpg) 50% 10%;
 }
 }@media (max-width:960px) and (max-height:600px) {
 	section.quality {
-	background:url(../images/wp5_h600.jpg) 50% 10%;
+	background:url(../images/wp14_h600.jpg) 50% 10%;
 }
 }@media (max-width:960px) {
 	.quality .box .items {
@@ -3591,11 +3604,11 @@ div.welcome p u {
 }
 }@media (max-width:1280px) and (max-height:800px) {
 	section.aboutus {
-	background:url(../images/wp7_h800.jpg) 50% 60%;
+	background:url(../images/wp12_h800.jpg) 50% 60%;
 }
 }@media (max-width:960px) and (max-height:600px) {
 	section.aboutus {
-	background:url(../images/wp7_h600.jpg) 50% 60%;
+	background:url(../images/wp12_h600.jpg) 50% 60%;
 }
 }@media (max-width:1200px) {
 	.aboutus table.exp td:nth-child(2) {
@@ -3949,7 +3962,6 @@ div.welcome p u {
 	display:none;
 }
 html {
-	background:url(../images/displayNone.png) no-repeat 50% top;
 	background-color:#333a32;
 }
 }.clear {
@@ -3995,3 +4007,12 @@ html {
 /*.tips_list li{
 	padding:0 65px;
 }*/
+.img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
+    display: block;
+    max-width: 37%;
+    height: auto;
+    margin-top: -20px;
+}
+.tips_list li{
+	color: #ccc;
+}
