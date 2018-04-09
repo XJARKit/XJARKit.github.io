@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <panorama id="node1">
-  <input height="5273" levelbiashidpi="0.400" levelingroll="0" width="5273" levelbias="0.400" levelingpitch="0" leveltilesize="510" leveltileurl="tiles/IMG_8805 Panorama/cf_%c/l_%l/c_%x/tile_%y.jpg" overlap="1">
-    <level height="5273" width="5273" predecode="0" preload="0"/>
-    <level height="2636" width="2636" predecode="0" preload="0"/>
-    <level height="1318" width="1318" predecode="0" preload="0"/>
-    <level height="659" width="659" predecode="0" preload="0"/>
-    <level height="329" width="329" predecode="1" preload="1"/>
+  <input height="5301" levelbiashidpi="0.400" levelingroll="0" width="5301" levelbias="0.400" levelingpitch="0" leveltilesize="510" leveltileurl="tiles/IMG_8863 Panorama/cf_%c/l_%l/c_%x/tile_%y.jpg" overlap="1">
+    <level height="5301" width="5301" predecode="0" preload="0"/>
+    <level height="2650" width="2650" predecode="0" preload="0"/>
+    <level height="1325" width="1325" predecode="0" preload="0"/>
+    <level height="662" width="662" predecode="0" preload="0"/>
+    <level height="331" width="331" predecode="1" preload="1"/>
     <preview color="0x808080" strip="1"/>
   </input>
   <view fovmode="0" pannorth="0">
@@ -13,7 +13,7 @@
     <min pan="0" fov="5" tilt="-70"/>
     <max pan="360" fov="120" tilt="70"/>
   </view>
-  <userdata longitude="" description="" title="" latitude="" tags="test5" comment="" source="" datetime="" copyright="" author="" info=""/>
+  <userdata longitude="" description="" title="" latitude="" tags="test6" comment="" source="" datetime="" copyright="" author="" info=""/>
   <hotspots height="20" width="180" wordwrap="1">
     <label height="20" textcolor="0x000000" width="180" bordercolor="0x000000" borderalpha="1" borderradius="1" wordwrap="1" textalpha="1" backgroundcolor="0xffffff" backgroundalpha="1" border="1" enabled="1" background="1"/>
     <polystyle mode="0" bordercolor="0x0000ff" borderalpha="1" handcursor="1" backgroundcolor="0x0000ff" backgroundalpha="0.2509803921568627"/>
