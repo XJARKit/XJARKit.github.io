@@ -860,9 +860,9 @@ img {
 }
 .img-responsive,.thumbnail>img,.thumbnail a>img,.carousel-inner>.item>img,.carousel-inner>.item>a>img {
 	display:block;
-	max-width:42%;
+	max-width:47%;
 	height:auto;
-	margin-top:-20px;
+	margin-top:-25px;
 }
 .img-rounded {
 	border-radius:6px
@@ -5308,3 +5308,4 @@ th.visible-print,td.visible-print {
 	display:none!important
 }
 }
+/*@media (max-width: 460px)*/

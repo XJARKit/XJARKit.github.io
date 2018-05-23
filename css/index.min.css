@@ -722,7 +722,6 @@ section.business {
 .business .box .caption span {
 	font-size:24px;
 	letter-spacing:3px;
-	color: #ccc;
 }
 .business .box ul.items {
 	margin:0 auto;
@@ -751,7 +750,7 @@ section.business {
 	background:url(../images/words.png) no-repeat -416px -291px;
 }
 .business .box ul.items li.sys i {
-	width:76px;
+	width:64px;
 	background:url(../images/words.png) no-repeat -415px -362px;
 }
 .business .box ul.items li.app i {
@@ -793,7 +792,6 @@ section.business {
 	font-size:16px;
 	font-weight:normal;
 	text-align:center;
-	color: #00dfb9;
 }
 .business .box ul.items li p {
 	position:relative;
@@ -865,7 +863,7 @@ section.business {
 	background:url(../images/words.png) no-repeat 0px -333px;
 }
 section.cases {
-	background:url(../images/wp3.jpg);
+	/*background:url(../images/wp3.jpg);*/
 }
 .cases .box {
 	position:relative;
@@ -896,6 +894,7 @@ section.cases {
 	margin-bottom:20px;
 	width:129px;
 	height:37px;
+	background:url(../images/words.png) no-repeat 0px -528px;
 }
 .cases .box .caption span {
 	font-size:24px;
@@ -918,8 +917,9 @@ section.cases {
 	top:0px;
 }
 .cases .box .swiper-container.items .swiper-slide {
-	width:510px;
+	width:340px;
 	margin:0 10px;
+	border-bottom:2px solid #2fd0b5;
 	cursor:pointer;
 }
 .cases .box .swiper-container.items .swiper-slide img {
@@ -1535,7 +1535,7 @@ section.quality {
 .quality .box .swiper-slide p {
 	color:#e1e1e1;
 	text-align:center;
-	line-height:36px;
+	line-height:22px;
 }
 .quality .box a.lookall {
 	display:block;
@@ -1644,25 +1644,18 @@ section.marketing {
 	width:68px;
 	background:url(../images/words.png) no-repeat -288px -630px;
 }
-
-.marketing .box ul.items li.qjzs i {
-	width:66px;
-	background:url(../images/icon_02.png) no-repeat -15px 8px;
+.marketing .box ul.items li.sms i {
+	width:61px;
+	background:url(../images/words.png) no-repeat -366px -628px;
 }
-.marketing .box ul.items li.qjmx i {
-	width:68px;
-	background:url(../images/icon_02.png) no-repeat -15px -62px;
+.marketing .box ul.items li.pay i {
+	width:56px;
+	background:url(../images/words.png) no-repeat -438px -639px;
 }
-.marketing .box ul.items li.tdmx i {
-	width:68px;
-	background:url(../images/icon_02.png) no-repeat -13px -137px;
+.marketing .box ul.items li.bbs i {
+	width:51px;
+	background:url(../images/words.png) no-repeat -144px -705px;
 }
-.marketing .box ul.items li.tdzs i {
-	width:68px;
-	background:url(../images/icon_02.png) no-repeat -9px -216px;
-}
-
-
 .marketing .box ul.items li u {
 	display:block;
 	position:absolute;
@@ -1836,9 +1829,9 @@ section.aboutus {
 	padding:0px;
 }
 .aboutus .items .swiper-slide.nth3 ul li {
-	color:#999;
-	line-height:35px;
-	padding-left:30px;
+	color:#ccc;
+	line-height:27px;
+	padding-left:28px;
 	list-style:none;
 	background:url(../images/point.png) no-repeat 0px 13px;
 }
@@ -2209,11 +2202,14 @@ header .logo img.ori {
 }
 header .logo img.mini {
 	display:inline-block;
-    padding-top: 15px;
-    height: 39px;
-    width: 55px;
-   
-}
+    width:34%;
+    padding:10px;
+}@media (max-width: 460px){
+        header .logo img.mini {
+            display: inline-block;
+            width: 50%;
+            padding: 21px;
+        }
 }@media (max-width:1080px) {
 	header .hotline {
 	right:285px;
@@ -2313,7 +2309,7 @@ header.fixed {
 	height:60px;
 }
 header .logo,header.fixed .logo {
-	width:103px;
+	width:80px;
 }
 header .menu-icon,header.fixed .menu-icon {
 	top:13px;
@@ -2322,7 +2318,7 @@ header .menu-icon span.glyphicon-earphone {
 	display:inline;
 }
 header nav.menu,header.fixed nav.menu {
-	top:41px;
+	top:17px;
 }
 header .hotline,header.fixed .hotline {
 	display:none;
@@ -2865,7 +2861,7 @@ div.welcome p u {
 }
 }@media (max-width:425px) and (max-height:670px) {
 	.business .box {
-	margin-top:0px;
+	margin-top:-109px;
 }
 }
 @media (max-width:425px) and (max-height:500px) {
@@ -2886,12 +2882,12 @@ div.welcome p u {
 }
 @media (max-width:1280px) and (max-height:800px) {
 	section.cases {
-		background:url(../images/wp3_h800.jpg);
+		/*background:url(../images/wp3_h800.jpg);*/
 	}
 }
 @media (max-width:960px) and (max-height:600px) {
 	section.cases {
-	background:url(../images/wp3_h600.jpg);
+	/*background:url(../images/wp3_h600.jpg);*/
 }
 }
 
@@ -2918,8 +2914,7 @@ div.welcome p u {
 		width:840px;
 	}
 	.cases .box .swiper-container.items .swiper-slide {
-		width:396px;
-		height:300px;
+		width:260px;
 	}
 	.cases .box .swiper-container.items .swiper-slide img {
 		width:260px;
@@ -3472,9 +3467,9 @@ div.welcome p u {
 	width:600px !important;
 }
 .marketing .box ul.items li {
-	width:160px;
-	height:43px;
-	margin:30px 0 0 25px;
+	width:175px;
+	height:46px;
+	margin:29px 0 0 25px;
 }
 .marketing .box ul.items li i {
 	float:left;
@@ -3512,9 +3507,9 @@ div.welcome p u {
 }
 .marketing .box ul.items li strong,.marketing.active .box ul.items li strong {
 	float:left;
-	margin:0px;
+	margin:-14px;
 	padding-left:15px;
-	line-height:43px;
+	line-height:54px;
 }
 .marketing .box ul.items li p {
 	display:none;
@@ -3661,7 +3656,7 @@ div.welcome p u {
 	line-height:32px;
 }
 .aboutus .items .swiper-slide.nth3 strong {
-	margin-bottom:15px;
+	/*margin-bottom:15px;*/
 }
 }@media (max-width:780px) and (max-height:340px) {
 	.aboutus .items {
@@ -3962,6 +3957,7 @@ div.welcome p u {
 	display:none;
 }
 html {
+	background:url(../images/displayNone.png) no-repeat 50% top;
 	background-color:#333a32;
 }
 }.clear {
@@ -4003,15 +3999,6 @@ html {
     background: url(../images/icons.png) no-repeat 0px -60px;
     cursor: pointer;
     z-index: 99;
-}
-/*.tips_list li{
-	padding:0 65px;
-}*/
-.img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
-    display: block;
-    max-width: 37%;
-    height: auto;
-    margin-top: -20px;
 }
 .tips_list li{
 	color: #ccc;
